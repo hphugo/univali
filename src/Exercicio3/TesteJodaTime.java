@@ -2,7 +2,9 @@ package Exercicio3;
 
 import static org.junit.Assert.*;
 
+import org.joda.time.DateTime;
 import org.joda.time.IllegalFieldValueException;
+import org.joda.time.Interval;
 import org.joda.time.LocalDate;
 import org.joda.time.LocalTime;
 import org.junit.Test;
@@ -68,5 +70,37 @@ public class TesteJodaTime {
     	
 		
 	}
+    
+    @Test
+	public void contarHoras() throws Exception {
+		DateTime primeiroDia = new DateTime(2017, 3, 31, 18, 30);
+		DateTime ultimoDia = new DateTime(2017, 5, 6, 18, 30);
+		DateTime hoje = new DateTime(2017, 4, 1, 18, 30);
+	
+		assertEquals(2017, primeiroDia.getYear());
+		assertEquals(3, primeiroDia.getMonthOfYear());
+		assertEquals(31, primeiroDia.getDayOfMonth());
+		assertEquals(18, primeiroDia.getHourOfDay());
+		assertEquals(30, primeiroDia.getMinuteOfHour());
+		
+		Interval intervalo = new Interval(primeiroDia, ultimoDia);
+		assertTrue(intervalo.contains(hoje));
+		
+		long periodo = intervalo.toDurationMillis();
+		periodo = periodo / 1000;
+		periodo = periodo / 60;
+		periodo = periodo / 60;
+		
+		assertEquals(864, periodo);
+		
+		
+		
+		
+    	
+    	
+	}
+    
+    
+    
     
 }
