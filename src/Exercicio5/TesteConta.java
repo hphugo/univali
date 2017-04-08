@@ -1,4 +1,4 @@
-package Exercicio5.inline;
+package Exercicio5;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -14,15 +14,15 @@ import br.ufsc.ine.leb.sistemaBancario.SistemaBancario;
 public class TesteConta {
 
 	@Test
-	public void joaoCaixaEconomicaTrindade() throws Exception {
+	public void mariaBancoDoBrasilCentro() throws Exception {
 		SistemaBancario sistemaBancario = new SistemaBancario();
 		Banco bancoDoBrasil = sistemaBancario.criarBanco("Banco do Brasil", Moeda.BRL);
-		Agencia bancoDoBrasiCentro = bancoDoBrasil.criarAgencia("Centro");
+		Agencia bancoDoBrasilCentro = bancoDoBrasil.criarAgencia("Centro");
 		Conta mariaBancoDoBrasilCentro = bancoDoBrasilCentro.criarConta("Maria");
 		
-		assertEquals("0001-5", bancoDoBrasilCentro.obterIdentificador());
-		assertEquals("Maria", bancoDoBrasilCentro.obterTitular());
-		assertTrue(bancoDoBrasilCentro.calcularSaldo().zero());
+		assertEquals("0001-5", mariaBancoDoBrasilCentro.obterIdentificador());
+		assertEquals("Maria", mariaBancoDoBrasilCentro.obterTitular());
+		assertTrue(mariaBancoDoBrasilCentro.calcularSaldo().zero());
 		assertEquals(bancoDoBrasilCentro, mariaBancoDoBrasilCentro.obterAgencia());
 	}
 
